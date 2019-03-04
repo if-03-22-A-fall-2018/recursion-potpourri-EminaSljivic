@@ -1,4 +1,5 @@
 #include "recfuncs.h"
+#include <stdlib.h>
 
 int calc_array_size(int n){
   if(n==0)
@@ -17,9 +18,9 @@ int convert_to_binary(int n){
   return n%2+10*convert_to_binary(n/2);
 }
 int* create_array(int size){
-  int* array=new int[size];
+  int* array=(int*)malloc(sizeof(int)*calc_array_size(size));
 
-  for (int i = 0; i < size; i++) {
+  for (int i = 0; i < calc_array_size(size); i++) {
     array[i]=-1;
   }
 
@@ -49,4 +50,6 @@ int thx(int* nums,int size, int* out_arr, int* out_arr_bin, int i, int index, in
   thx(nums,size,out_arr,out_arr_bin,i+1,index1,sum);
 }
 
-CalculationResults perform_calculations(int* nums, int n){}
+CalculationResults perform_calculations(int* nums, int n){
+
+}
